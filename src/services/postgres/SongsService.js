@@ -38,8 +38,10 @@ class SongsSevice {
   }
 
   async getSongs() {
-    const result = await this._pool.query("SELECT * FROM songs");
-    return result.rows.map(mapDB.mapDBToModelGetAll);
+    const result = await this._pool.query(
+      "SELECT id, title, performer FROM songs",
+    );
+    return result.rows;
   }
 
   async getSongById(id) {
@@ -49,7 +51,7 @@ class SongsSevice {
     };
     const result = await this._pool.query(query);
 
-    if (!result.rows.length) {
+    if (!result.rowCount) {
       throw new NotFoundError("Songs tidak ditemukan");
     }
 

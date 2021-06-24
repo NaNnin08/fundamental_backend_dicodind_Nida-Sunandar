@@ -1,10 +1,4 @@
 /* eslint-disable camelcase */
-const mapDBToModelGetAll = ({ id, title, performer }) => ({
-  id,
-  title,
-  performer,
-});
-
 const mapDBToModelGetById = ({
   id,
   title,
@@ -25,4 +19,4 @@ const mapDBToModelGetById = ({
   updatedAt: updated_at,
 });
 
-module.exports = { mapDBToModelGetAll, mapDBToModelGetById };
+module.exports = { mapDBToModelGetById };
